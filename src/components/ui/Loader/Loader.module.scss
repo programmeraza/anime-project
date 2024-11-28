@@ -1,0 +1,163 @@
+@import "/src/Vars.scss";
+
+.hidden {
+    display: none !important;
+}
+
+.loader {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    background-image: url(/loader-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.loading {
+    width: 200px;
+    height: 200px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 20px solid $colorBeige;
+    border-radius: 50%;
+    color: $colorBeige;
+    font-size: 30px;
+
+    .inner_circle {
+        display: block;
+        // position: relative;
+        // top: -5px;
+        // right: -5px;
+    }
+
+    @media (max-width: 480px) {
+        width: 150px;
+        height: 150px;
+        border: 14px solid $colorBeige;
+    }
+}
+
+.enter {
+    text-align: center;
+    color: $colorBeige;
+    // position: relative;
+    // top: -50px;
+
+    animation: animFade 1s;
+
+    h2 {
+        // font-size: 250px;
+        font-size: clamp(3.75rem, 0.215rem + 14.5vw, 15.625rem);
+        // position: relative;
+
+        // top: -30px;
+
+        @media (max-width: 480px) {
+            // top: -15px;
+        }
+    }
+
+    h5 {
+        // font-size: 50px;
+        font-size: clamp(1.25rem, 0.692rem + 2.29vw, 3.125rem);
+    }
+
+    @media (max-width: 480px) {
+        top: 0;
+    }
+}
+
+.loader_top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 45px 20px;
+
+    text-align: center;
+
+    background-image: url(/bg-2.png);
+
+    animation: animTop 1.6s;
+
+    h3 {
+        color: $colorPink;
+        // font-size: 28px;
+        font-size: clamp(1.125rem, 0.939rem + 0.76vw, 1.75rem);
+    }
+}
+
+.loader_bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    // padding: 55px 20px;
+    padding: clamp(1.25rem, 0.599rem + 2.67vw, 3.438rem) 20px;
+
+    text-align: center;
+
+    background-image: url(/bg-2.png);
+
+    animation: animBottom 1.6s;
+
+    .container {
+        position: relative;
+    }
+
+    p {
+        color: $colorPink;
+        // font-size: 28px;
+        font-size: clamp(0.875rem, 0.615rem + 1.07vw, 1.75rem);
+
+        line-height: 1.2;
+    }
+
+    img {
+        position: absolute;
+        top: 30px;
+        width: 70px;
+        right: 30px;
+
+        @media (max-width: 480px) {
+            position: static;
+            margin-top: 10px;
+            width: 50px;
+        }
+    }
+}
+
+@keyframes animFade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes animTop {
+    0% {
+        top: -100%;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes animBottom {
+    0% {
+        bottom: -100%;
+    }
+    100% {
+        bottom: 0;
+    }
+}

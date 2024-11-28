@@ -1,0 +1,233 @@
+@import "/src/Vars.scss";
+
+.wrap {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    // gap: 10px;
+    transition: all 1s ease;
+
+    .card {
+        writing-mode: vertical-rl;
+    }
+
+    &.hover0 {
+        grid-template-columns: 3fr 1fr 1fr 1fr;
+
+        .card {
+            &:nth-child(1) {
+                writing-mode: horizontal-tb;
+                display: flex;
+                align-items: flex-end;
+                writing-mode: horizontal-tb;
+
+                h2,
+                p {
+                    display: none;
+                }
+
+                h3 {
+                    max-width: 100%;
+                    letter-spacing: 1px;
+                }
+            }
+        }
+    }
+
+    &.hover1 {
+        grid-template-columns: 1fr 3fr 1fr 1fr;
+    }
+
+    &.hover2 {
+        grid-template-columns: 1fr 1fr 3fr 1fr;
+    }
+
+    &.hover3 {
+        grid-template-columns: 1fr 1fr 1fr 3fr;
+    }
+
+    @media (max-width: 992px) {
+        grid-template-columns: 1fr !important;
+
+        .card {
+            writing-mode: horizontal-tb !important;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        h3 {
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+.card {
+    border: 5px solid $colorBrown;
+
+    // min-height: 600px;
+    min-height: clamp(33.75rem, 26.875rem + 10vw, 37.5rem);
+    color: $colorBeige;
+    padding: 30px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.5s ease-out;
+    font-size: 25px;
+
+    position: relative;
+
+    @media (max-width: 768px) {
+        border: none;
+    }
+
+    h3 {
+        writing-mode: horizontal-tb;
+        position: absolute;
+        bottom: 20px;
+        left: 30px;
+        font-size: 50px;
+
+        transition: all 1s ease-in-out;
+
+        max-width: 30px;
+        overflow: hidden;
+        white-space: nowrap;
+        // padding-bottom: 5px;
+        letter-spacing: 20px;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            display: flex;
+            align-items: flex-end;
+            writing-mode: horizontal-tb;
+            background-position: center center !important;
+
+            h2,
+            p {
+                display: none;
+            }
+
+            h3 {
+                max-width: 100%;
+                letter-spacing: 1px;
+            }
+        }
+    }
+
+    &:nth-child(1) {
+        background-image: url(/value-1.jpg);
+    }
+
+    &:nth-child(2) {
+        background-image: url(/value-2.jpg);
+        background-position: -600px;
+
+        @media (max-width: 992px) {
+            background-position: center;
+        }
+    }
+
+    &:nth-child(3) {
+        background-image: url(/value-3.jpg);
+    }
+
+    &:nth-child(4) {
+        background-image: url(/value-4.jpg);
+    }
+}
+
+.slider {
+    display: none;
+
+    @media (max-width: 768px) {
+        display: block;
+
+        .card {
+            min-height: 200px;
+
+            display: flex;
+            align-items: flex-end;
+
+            font-size: 16px;
+            line-height: 1.3;
+            padding: 20px;
+        }
+    }
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: center;
+    padding-top: 60px;
+
+    h3 {
+        // font-size: 200px;
+        font-size: clamp(3.125rem, 1.334rem + 11.45vw, 12.5rem);
+        color: $colorPink;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        padding-bottom: 50px;
+        text-align: center;
+        padding-top: 0;
+    }
+}
+
+.content_box {
+    // padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-end;
+
+    @media (max-width: 768px) {
+        align-items: center;
+        padding-top: 0px;
+
+        h4 {
+            z-index: -1;
+        }
+    }
+
+    h4 {
+        color: $colorBeige;
+        // font-size: 80px;
+        font-size: clamp(1.25rem, 0.134rem + 4.58vw, 5rem);
+    }
+}
+
+.value_swiper {
+    padding-bottom: 70px !important;
+}
+
+.swiper_btns {
+    max-width: 280px;
+    margin: 0 auto;
+    position: relative;
+    bottom: -30px;
+}
+.swiperButtonPrev,
+.swiperButtonNext {
+    background-color: transparent;
+    color: $colorPink;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+
+    position: absolute;
+}
+
+.swiperButtonPrev {
+    left: 10px;
+}
+
+.swiperButtonNext {
+    right: 10px;
+}
